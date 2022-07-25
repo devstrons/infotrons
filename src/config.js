@@ -1,3 +1,5 @@
+require("dotenv").config();
+
 module.exports = {
     Bot_Token: "",
     Bot_Prefix: "!",
