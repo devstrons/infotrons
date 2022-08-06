@@ -15,7 +15,6 @@ class Infotrons extends Client {
                 Intents.FLAGS.GUILD_WEBHOOKS,
                 Intents.FLAGS.GUILD_INVITES,
                 Intents.FLAGS.GUILD_VOICE_STATES,
-                //Intents.FLAGS.GUILD_PRESENCES,
                 Intents.FLAGS.GUILD_MESSAGES,
                 Intents.FLAGS.GUILD_MESSAGE_REACTIONS,
                 Intents.FLAGS.GUILD_MESSAGE_TYPING,
@@ -61,10 +60,11 @@ class Infotrons extends Client {
     // –– Commands Handler –––––––––––––––––––––––––––––––––––––––––––––––––––– 
 
     loadCommands() {
-        readdirSync("./Commands").forEach(dir => {
-            const commandFiles = readdirSync(`./Commands/`).filter(f => f.endsWith('.js'));
+        let dirname = "src/commands";
+        readdirSync(dirname).forEach(dir => {
+            const commandFiles = readdirSync(dirname).filter(f => f.endsWith('.js'));
             for (const file of commandFiles) {
-                const command = require(`../Commands/${file}`);
+                const command = require(`../${dirname}/${file}`);
                 console.log(`[ • ] Message Command Loaded: ${command.category} - ${command.name}`, "cmd");
                 this.commands.set(command.name, command);
             }
@@ -75,11 +75,12 @@ class Infotrons extends Client {
 
     loadSlashCommands() {
         const data = [];
-        readdirSync("./SlashCommands").forEach((dir) => {
-            const slashCommandFile = readdirSync(`./SlashCommands/`).filter((files) => files.endsWith(".js"));
+        let dirname = "./src/SlashCommands";
+        readdirSync(dirname).forEach((dir) => {
+            const slashCommandFile = readdirSync(dirname).filter((files) => files.endsWith(".js"));
 
             for (const file of slashCommandFile) {
-                const slashCommand = require(`../SlashCommands/${file}`);
+                const slashCommand = require(`../${dirname}/${file}`);
 
                 if (!slashCommand.name) return console.error(`slashCommandNameError: ${slashCommand.split(".")[0]} application command name is required.`);
 
