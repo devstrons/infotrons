@@ -7,7 +7,7 @@ module.exports = {
     let prefix = client.prefix;
     const channel = message?.channel;
 
-    let datab = client.config.Bot_owenerID
+    let datab = ['801478547893387345']
 
 
     const mentionRegexPrefix = RegExp(`^<@!?${client.user.id}>`)

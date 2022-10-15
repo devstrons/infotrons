@@ -11,7 +11,7 @@ module.exports = {
      */
     run: async(client, interaction, args) => {
         const embed = new MessageEmbed()
-        .setColor(client.embedColor)
+        .setColor(client.color)
         .setDescription(`${client.emojis.ping_pong} Pong!\n${client.ws.ping}ms`)
 
         interaction.reply({embeds: [embed]})

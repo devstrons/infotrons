@@ -37,10 +37,9 @@ class Infotrons extends Client {
         this.commands = new Collection();
         this.slashCommands = new Collection();
         this.aliases = new Collection();
-        this.owner = this.config.Bot_owenerID;
         this.prefix = this.config.prefix;
         this.emoji = require('./utility/emojis.json');
-        this.color = this.config.Bot_embedColor;
+        this.color = this.config.color;
     }
 
     // –– Events Handler ––––––––––––––––––––––––––––––––––––––––——––––––––––––– 
@@ -99,10 +98,10 @@ class Infotrons extends Client {
 
     login() {
 
-        if (!this.config.Bot_Token)
+        if (!this.config.token)
             throw new Error("You must pass the token for the client...");
 
-        super.login(this.config.Bot_Token);
+        super.login(this.config.token);
 
     }
 
