@@ -4,7 +4,8 @@
   "description": "test",
   "main": "infotrons.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "api": "node ./google_api.js"
   },
   "repository": {
     "type": "git",
@@ -21,6 +22,8 @@
   "homepage": "https://github.com/devstrons/infotrons#readme",
   "dependencies": {
     "discord.js": "^13.8.1",
-    "dotenv": "^16.0.1"
+    "dotenv": "^16.0.1",
+    "google-search-results-nodejs": "^2.1.0",
+    "node-superfetch": "^0.3.3"
   }
 }
